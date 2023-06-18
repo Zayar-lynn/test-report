@@ -8,28 +8,40 @@ import jsPDF from "jspdf";
 
 const OverviewBtn = ({ chart_id }) => {
 
+  // const saveAsPDF = () => {
+  //   const screenElement = document.getElementById(chart_id);
+
+  //   const scale = 2;
+  //   const width = screenElement.offsetWidth;
+  //   const height = screenElement.offsetHeight;
+  //   const canvas = document.createElement("canvas");
+  //   canvas.width = width * scale;
+  //   canvas.height = height * scale;
+  //   canvas.style.width = `${width}px`;
+  //   canvas.style.height = `${height}px`;
+
+  //   const context = canvas.getContext("2d");
+  //   context.scale(scale, scale);
+  //   context.fillStyle = "transparent";
+  //   context.fillRect(0, 0, canvas.width, canvas.height);
+
+  //   html2canvas(screenElement, { canvas: canvas }).then(canvas => {
+  //     const imgData = canvas.toDataURL("image/png");
+  //     const pdf = new jsPDF("p", "pt", [width, height]);
+  //     pdf.addImage(imgData, "PNG", 0, 0, width, height);
+  //     pdf.save("report.pdf");
+  //   });
+  // };
+
   const saveAsPDF = () => {
     const screenElement = document.getElementById(chart_id);
-
-    const scale = 2;
-    const width = screenElement.offsetWidth;
-    const height = screenElement.offsetHeight;
-    const canvas = document.createElement("canvas");
-    canvas.width = width * scale;
-    canvas.height = height * scale;
-    canvas.style.width = `${width}px`;
-    canvas.style.height = `${height}px`;
-
-    const context = canvas.getContext("2d");
-    context.scale(scale, scale);
-    context.fillStyle = "transparent";
-    context.fillRect(0, 0, canvas.width, canvas.height);
-
-    html2canvas(screenElement, { canvas: canvas }).then(canvas => {
-      const imgData = canvas.toDataURL("image/png");
-      const pdf = new jsPDF("p", "pt", [width, height]);
-      pdf.addImage(imgData, "PNG", 0, 0, width, height);
-      pdf.save("report.pdf");
+    html2canvas(screenElement).then((canvas) => {
+      const imgData = canvas.toDataURL('image/png');
+      const pdf = new jsPDF();
+      const width = pdf.internal.pageSize.getWidth();
+      const height = pdf.internal.pageSize.getHeight();
+      pdf.addImage(imgData, 'PNG', 0, 0, width, height);
+      pdf.save('report.pdf');
     });
   };
 

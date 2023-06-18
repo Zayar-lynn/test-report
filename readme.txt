@@ -2,8 +2,10 @@ Project setup guide
 --------------------------
 (You need to do step by step)
 
-npm version - 8.1.0
-node version - 16.12.0
+npm version - 8.1.0 / 6.13.4
+node version - 16.12.0 / 12.16.0
+
+*Version may change. If you don't get one of the 2 versions, you can use it instead.
 
 1.Run apache server and sql server first. (xampp, wampp or standalone)
 
