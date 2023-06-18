@@ -45,7 +45,7 @@ con.connect((error) => {
     },
     {
       type: "Non-Recyclable",
-      value: 2.1
+      value: 2.2
     },
     {
       type: "Non-Recyclable",

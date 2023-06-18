@@ -7,7 +7,7 @@
     "start": "node index",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon index",
-    "migrate": "concurrently \"node migrate/overviews.js\" \"node migrate/abnomalities.js\""
+    "migrate": "concurrently \"node migrate/overviews.js\" \"node migrate/abnomalities.js\" \"node migrate/waterlevel.js\" \"node migrate/recyclable.js\""
   },
   "keywords": [],
   "author": "",
